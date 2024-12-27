@@ -83,9 +83,9 @@ int Timing::operator==(const Timing& other) const {
 std::ostream& operator<<(std::ostream& os, const Timing& t) {
     os << "<Timing>\n"
        << "<day>\n" << t.getDay() << "\n</day>\n"
-       << "<start>\n" << t.start << "\n</start>\n"
-       << "<duration>\n" << t.duration << "\n</duration>\n"
-       << "</Timing>";
+       << "<start>\n" << t.start << "</start>\n"
+       << "<duration>\n" << t.duration << "</duration>\n"
+       << "</Timing>\n";
     return os;
 }
 

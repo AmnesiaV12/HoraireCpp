@@ -2,10 +2,12 @@
 #include <iostream>
 #include <cstring>
 
+int Schedulable::currentId = 1;
 
 // Constructeur par défaut
 Schedulable::Schedulable() {
-    id = 0;
+    // id = 0;
+    id = currentId++;
 }
 
 // Constructeur avec paramètre

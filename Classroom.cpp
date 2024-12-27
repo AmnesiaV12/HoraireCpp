@@ -55,7 +55,7 @@ std::ostream& operator<<(std::ostream& os, const Classroom& c) {
        << "<id>\n" << c.getId() << "\n</id>\n"
        << "<name>\n" << c.getName() << "\n</name>\n"
        << "<seatingCapacity>\n" << c.getSeatingCapacity() << "\n</seatingCapacity>\n"
-       << "</Classroom>";
+       << "</Classroom>\n";
     return os;
 }
 
@@ -114,4 +114,13 @@ Classroom& Classroom::operator=(const Classroom& other) {
         setSeatingCapacity(other.getSeatingCapacity());
     }
     return *this;
+}
+
+// Opérateur<
+bool Classroom::operator<(const Classroom& other) const {
+    return getId() < other.getId(); // pour l'ID
+}
+
+bool Classroom::operator==(const Classroom& other) const {
+    return this->getId() == other.getId(); // pour l'ID
 }

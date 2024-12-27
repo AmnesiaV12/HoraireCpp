@@ -26,5 +26,8 @@ public:
     friend ostream& operator<<(ostream& os, const Group& g);
 
     Group& operator=(const Group& other);
+
+    bool operator<(const Group& other) const;
 };
+
 #endif

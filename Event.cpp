@@ -101,11 +101,12 @@ istream& operator>>(istream& is, Event& t) {
     getline(is, line); // <Event>
     getline(is, line); // <code>
     getline(is, line); // 
-    istringstream iss_code(line);
+    /*istringstream iss_code(line);
     if (!(iss_code >> code)) {
         is.setstate(ios::failbit);
         return is;
-    }
+    }*/
+    t.setCode(stoi(line));
     getline(is, line); // </code>
     getline(is, line); // <title>
     getline(is, line); // 
@@ -118,15 +119,16 @@ istream& operator>>(istream& is, Event& t) {
     getline(is, line); // </title>
     getline(is, line); // <timing> / </Event>
     if (line == "<timing>") {
-        t.timing = new Timing();
-        is >> *(t.timing); // Lecture du Timing
+        // t.timing = new Timing();
+        Timing tmptiming ;
+        is >> tmptiming ;
+        t.setTiming(tmptiming);
+        // is >> *(t.timing); // Lecture du Timing
         getline(is, line); // </timing>
-    } else {
-        t.timing = nullptr; // Si pas de <timing>, laisser le pointeur à null
+        getline(is, line); // </Event>
     }
-    getline(is, line); // </Event>
+    
 
-    t.setCode(code);
     //t.setTitle(title);
     return is;
 }

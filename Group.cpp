@@ -61,3 +61,8 @@ Group& Group::operator=(const Group& other) {
     }
     return *this;
 }
+
+// Opérateur<
+bool Group::operator<(const Group& other) const {
+    return getId() < other.getId();  
+}

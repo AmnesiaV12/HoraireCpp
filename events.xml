@@ -32,7 +32,8 @@ Lundi
 </minute>
 </Time>
 </duration>
-</Timing></timing>
+</Timing>
+</timing>
 </Event>
 <Event>
 <code>
@@ -66,7 +67,8 @@ Mardi
 </minute>
 </Time>
 </duration>
-</Timing></timing>
+</Timing>
+</timing>
 </Event>
 <Event>
 <code>
@@ -108,7 +110,8 @@ Jeudi
 </minute>
 </Time>
 </duration>
-</Timing></timing>
+</Timing>
+</timing>
 </Event>
 <Event>
 <code>
@@ -142,6 +145,7 @@ Vendredi
 </minute>
 </Time>
 </duration>
-</Timing></timing>
+</Timing>
+</timing>
 </Event>
 </events>

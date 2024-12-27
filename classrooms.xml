@@ -10,7 +10,8 @@ AN
 <seatingCapacity>
 110
 </seatingCapacity>
-</Classroom><Classroom>
+</Classroom>
+<Classroom>
 <id>
 9
 </id>
@@ -20,7 +21,8 @@ PV11
 <seatingCapacity>
 25
 </seatingCapacity>
-</Classroom><Classroom>
+</Classroom>
+<Classroom>
 <id>
 7
 </id>
@@ -30,4 +32,5 @@ LP02
 <seatingCapacity>
 15
 </seatingCapacity>
-</Classroom></classrooms>
+</Classroom>
+</classrooms>

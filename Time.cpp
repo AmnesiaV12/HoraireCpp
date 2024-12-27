@@ -116,7 +116,7 @@ std::ostream& operator<<(std::ostream& os, const Time& t) {
     os << "<Time>\n"
        << "<hour>\n" << t.getHour() << "\n</hour>\n"
        << "<minute>\n" << t.getMinute() << "\n</minute>\n"
-       << "</Time>";
+       << "</Time>\n";
     return os;
 }
 
@@ -250,6 +250,6 @@ void Time::display() const {
 }
 
 string Time::toString() const {
-    return "Time[Hour=" + std::to_string(hour) + ", Minute=" + std::to_string(minute) + "]";
+    return "Time[Hour=" + to_string(hour) + ", Minute=" + std::to_string(minute) + "]";
 }
 }

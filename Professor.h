@@ -6,7 +6,7 @@
 #include <string>
 using namespace std;
 
-class Professor : public Schedulable { // Page 13
+class Professor : public Schedulable {
 private:
     string lastName;
     string firstName;
@@ -16,9 +16,7 @@ public:
     Professor(int id, const string& lastName, const string& firstName);
     Professor(const Professor& other);
 
-    ~Professor() override; // Page 18
-    /*Le décorateur « override » ne peut se placer que sur une méthode déclarée virtual
-    dans la classe de base. De plus, il ne se place que dans le fichier .h et non .cpp*/
+    ~Professor() override;
 
     void setLastName(const string& lN);
     void setFirstName(const string& fN);
@@ -32,6 +30,8 @@ public:
     friend ostream& operator<<(std::ostream& os, const Professor& p);
 
     Professor& operator=(const Professor& other);
+
+    bool operator<(const Professor& other) const;
 };
 
 #endif

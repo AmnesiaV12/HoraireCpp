@@ -4,6 +4,8 @@
 #include "Schedulable.h"
 #include <iostream>
 #include <string>
+#include "Group.h"
+#include "Professor.h"
 using namespace std;
 
 class Classroom : public Schedulable {
@@ -35,6 +37,9 @@ public:
     friend istream& operator>>(istream& is, Classroom& c);
     // Opérateur d'affectation
     Classroom& operator=(const Classroom& other);
+    bool operator<(const Classroom& other) const;
+    bool operator==(const Classroom& other) const;
+
 };
 
 #endif

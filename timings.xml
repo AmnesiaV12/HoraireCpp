@@ -24,7 +24,8 @@ Lundi
 </minute>
 </Time>
 </duration>
-</Timing><Timing>
+</Timing>
+<Timing>
 <day>
 Mardi
 </day>
@@ -48,7 +49,8 @@ Mardi
 </minute>
 </Time>
 </duration>
-</Timing><Timing>
+</Timing>
+<Timing>
 <day>
 Jeudi
 </day>
@@ -72,7 +74,8 @@ Jeudi
 </minute>
 </Time>
 </duration>
-</Timing><Timing>
+</Timing>
+<Timing>
 <day>
 Vendredi
 </day>
@@ -96,4 +99,5 @@ Vendredi
 </minute>
 </Time>
 </duration>
-</Timing></timings>
+</Timing>
+</timings>

@@ -10,8 +10,12 @@ using namespace std;
 class Schedulable { // Page 32 du cours
 protected:
     int id;
+    
 
 public:
+    
+    static int currentId;
+
     // Constructeur par défaut
     Schedulable();
 

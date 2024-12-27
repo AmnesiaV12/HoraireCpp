@@ -1,5 +1,5 @@
-Test7:	Test7.cpp Time.o Timing.o Event.o Schedulable.o Professor.o Group.o Classroom.o Exception.o TimeException.o TimingException.o XmlFileSerializerException.o
-		g++ Test7.cpp  Time.o Timing.o Event.o Schedulable.o Professor.o Group.o Classroom.o Exception.o TimeException.o TimingException.o XmlFileSerializerException.o -o Test7
+Test8A:	Test8a.cpp Time.o Timing.o Event.o Schedulable.o Professor.o Group.o Classroom.o Exception.o TimeException.o TimingException.o XmlFileSerializerException.o Timetable.o
+		g++ Test8a.cpp  Time.o Timing.o Event.o Schedulable.o Professor.o Group.o Classroom.o Exception.o TimeException.o TimingException.o XmlFileSerializerException.o Timetable.o -o Test8A
 
 Event.o:	Event.cpp Event.h
 			g++ Event.cpp -c
@@ -33,3 +33,6 @@ TimingException.o:	TimingException.cpp TimingException.h Exception.h
 
 XmlFileSerializerException.o:	XmlFileSerializerException.cpp XmlFileSerializerException.h Exception.h
 								g++ XmlFileSerializerException.cpp -c
+
+Timetable.o:		Timetable.cpp Timetable.h
+					g++ Timetable.cpp -c

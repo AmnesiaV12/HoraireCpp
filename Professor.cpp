@@ -77,3 +77,8 @@ Professor& Professor::operator=(const Professor& other) {
     }
     return *this;
 }
+
+// Opérateur<
+bool Professor::operator<(const Professor& other) const {
+    return getId() < other.getId(); // Comparaison basée sur l'ID
+}
