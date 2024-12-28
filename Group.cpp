@@ -64,5 +64,5 @@ Group& Group::operator=(const Group& other) {
 
 // Opérateur<
 bool Group::operator<(const Group& other) const {
-    return getId() < other.getId();  
+    return getName() < other.getName();  
 }

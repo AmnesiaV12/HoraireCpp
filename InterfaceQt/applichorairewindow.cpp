@@ -485,42 +485,159 @@ void ApplicHoraireWindow::setClassroomChecked(bool b) {
 void ApplicHoraireWindow::on_pushButtonAjouterProfesseur_clicked() {
     cout << "Clic sur bouton Ajouter Professeur" << endl;
     // TO DO (Etape 9)
+    // Récupérer le nom et le prénom du professeur
+    string lastName = getProfessorLastName();
+    string firstName = getProfessorFirstName();
 
+    // Vérifier si les informations sont valides
+    if (lastName.empty() || firstName.empty()) {
+        dialogError("Erreur", "Le nom ou le prénom du professeur est vide !");
+        return;
+    }
+
+    // Ajouter le professeur via la classe Timetable
+    Timetable::getInstance().addProfessor(lastName, firstName);
+
+    // Mettre à jour la table des professeurs
+    ui->tableWidgetProfessors->clearContents();
+    Timetable& timetable = Timetable::getInstance();
+    auto professors = timetable.getSortedProfessors();  // Liste triée des professeurs
+
+    for (const auto& professor : professors) {
+        string tuple = professor.tuple();  // Récupérer le tuple du professeur
+        ui->tableWidgetProfessors->addItem(tuple);  // Ajouter dans la table
+    }
+
+    cout << "Professeur ajouté" << endl;
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void ApplicHoraireWindow::on_pushButtonAjouterGroupe_clicked() {
     cout << "Clic sur bouton Ajouter Groupe" << endl;
     // TO DO (Etape 9)
+    // Récupérer le nom du groupe
+    string groupName = getGroupName();
 
+    // Vérifier si le nom est valide
+    if (groupName.empty()) {
+        dialogError("Erreur", "Le nom du groupe est vide !");
+        return;
+    }
+
+    // Ajouter le groupe via la classe Timetable
+    Timetable::getInstance().addGroup(groupName);
+
+    // Mettre à jour la table des groupes
+    ui->tableWidgetGroups->clearContents();
+    auto groups = Timetable::getInstance().getSortedGroups();
+
+    for (const auto& group : groups) {
+        string tuple = group.tuple();  // Récupérer le tuple du groupe
+        ui->tableWidgetGroups->addItem(tuple);  // Ajouter dans la table
+    }
+
+    cout << "Groupe ajouté" << endl;
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void ApplicHoraireWindow::on_pushButtonAjouterLocal_clicked() {
     cout << "Clic sur bouton Ajouter Local" << endl;
     // TO DO (Etape 9)
+    // Récupérer le nom du local
+    string classroomName = getClassroomName();
 
+    // Vérifier si le nom est valide
+    if (classroomName.empty()) {
+        dialogError("Erreur", "Le nom du local est vide !");
+        return;
+    }
+
+    // Ajouter le local via la classe Timetable
+    Timetable::getInstance().addClassroom(classroomName);
+
+    // Mettre à jour la table des locaux
+    ui->tableWidgetClassrooms->clearContents();
+    auto classrooms = Timetable::getInstance().getSortedClassrooms();
+
+    for (const auto& classroom : classrooms) {
+        string tuple = classroom.tuple();  // Récupérer le tuple du local
+        ui->tableWidgetClassrooms->addItem(tuple);  // Ajouter dans la table
+    }
+
+    cout << "Local ajouté" << endl;
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void ApplicHoraireWindow::on_pushButtonSupprimerProfesseur_clicked() {
     cout << "Clic sur bouton Supprimer Professeur" << endl;
     // TO DO (Etape 9)
+    // Récupérer l'indice du professeur sélectionné
+    int index = getIndexProfessorSelection();
+    if (index == -1) {
+        dialogError("Erreur", "Aucun professeur sélectionné !");
+        return;
+    }
 
+    // Supprimer le professeur via la classe Timetable
+    Timetable::getInstance().deleteProfessorByIndex(index);
+
+    // Mettre à jour la table des professeurs
+    ui->tableWidgetProfessors->clearContents();
+    auto professors = Timetable::getInstance().getSortedProfessors();
+
+    for (const auto& professor : professors) {
+        string tuple = professor.tuple();  // Récupérer le tuple du professeur
+        ui->tableWidgetProfessors->addItem(tuple);  // Ajouter dans la table
+    }
+
+    cout << "Professeur supprimé" << endl;
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void ApplicHoraireWindow::on_pushButtonSupprimerGroupe_clicked() {
     cout << "Clic sur bouton Supprimer Groupe" << endl;
     // TO DO (Etape 9)
+    // Récupérer l'indice du groupe sélectionné
+    int index = getIndexGroupSelection();
+    if (index == -1) {
+        dialogError("Erreur", "Aucun groupe sélectionné !");
+        return;
+    }
 
+    // Supprimer le groupe via la classe Timetable
+    Timetable::getInstance().deleteGroupByIndex(index);
+
+    // Mettre à jour la table des groupes
+    ui->tableWidgetGroups->clearContents();
+    auto groups = Timetable::getInstance().getSortedGroups();
+
+    for (const auto& group : groups) {
+        string tuple = group.tuple();  // Récupérer le tuple du groupe
+        ui->tableWidgetGroups->addItem(tuple);  // Ajouter dans la table
+    }
+
+    cout << "Groupe supprimé" << endl;
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void ApplicHoraireWindow::on_pushButtonSupprimerLocal_clicked() {
     cout << "Clic sur bouton Supprimer Local" << endl;
     // TO DO (Etape 9)
+    // Récupérer l'indice du local sélectionné
+    int index = getIndexClassroomSelection();
+    if (index == -1) {
+        dialogError("Erreur", "Aucun local sélectionné !");
+        return;
+    }
 
+    // Supprimer le local via la classe Timetable
+    Timetable::getInstance().deleteClassroomByIndex(index);
+
+    // Mettre à jour la table des locaux
+    ui->tableWidgetClassrooms->clearContents();
+    auto classrooms = Timetable::getInstance().getSortedClassrooms();
+
+    for (const auto& classroom : classrooms) {
+        string tuple = classroom.tuple();  // Récupérer le tuple du local
+        ui->tableWidgetClassrooms->addItem(tuple);  // Ajouter dans la table
+    }
+
+    cout << "Local supprimé" << endl;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -576,21 +693,84 @@ void ApplicHoraireWindow::on_actionEnregistrer_triggered()
 void ApplicHoraireWindow::on_actionSupprimerProfesseur_triggered() {
     cout << "Clic sur Menu Supprimer --> Item Professeur" << endl;
     // TO DO (Etape 9)
+    // Demander à l'utilisateur l'identifiant du professeur à supprimer
+    int professorId = dialogInputInt("Supprimer un professeur", "Entrez l'identifiant du professeur à supprimer :");
 
+    // Vérifier si l'identifiant est valide (pas nécessairement ici, dépend de Timetable)
+    if (professorId < 0) {
+        dialogError("Erreur", "Identifiant du professeur invalide !");
+        return;
+    }
+
+    // Supprimer le professeur via la classe Timetable
+    Timetable::getInstance().deleteProfessorById(professorId);
+
+    // Mettre à jour la table des professeurs
+    ui->tableWidgetProfessors->clearContents();
+    auto professors = Timetable::getInstance().getSortedProfessors();
+
+    for (const auto& professor : professors) {
+        string tuple = professor.tuple();  // Récupérer le tuple du professeur
+        ui->tableWidgetProfessors->addItem(tuple);  // Ajouter dans la table
+    }
+
+    cout << "Professeur supprimé (ID: " << professorId << ")" << endl;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void ApplicHoraireWindow::on_actionSupprimerGroupe_triggered() {
     cout << "Clic sur Menu Supprimer --> Item Groupe" << endl;
     // TO DO (Etape 9)
+    // Demander à l'utilisateur l'identifiant du groupe à supprimer
+    int groupId = dialogInputInt("Supprimer un groupe", "Entrez l'identifiant du groupe à supprimer :");
 
+    // Vérifier si l'identifiant est valide (pas nécessairement ici, dépend de Timetable)
+    if (groupId < 0) {
+        dialogError("Erreur", "Identifiant du groupe invalide !");
+        return;
+    }
+
+    // Supprimer le groupe via la classe Timetable
+    Timetable::getInstance().deleteGroupById(groupId);
+
+    // Mettre à jour la table des groupes
+    ui->tableWidgetGroups->clearContents();
+    auto groups = Timetable::getInstance().getSortedGroups();
+
+    for (const auto& group : groups) {
+        string tuple = group.tuple();  // Récupérer le tuple du groupe
+        ui->tableWidgetGroups->addItem(tuple);  // Ajouter dans la table
+    }
+
+    cout << "Groupe supprimé (ID: " << groupId << ")" << endl;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void ApplicHoraireWindow::on_actionSupprimerLocal_triggered() {
     cout << "Clic sur Menu Supprimer --> Item Local" << endl;
     // TO DO (Etape 9)
+    // Demander à l'utilisateur l'identifiant du local à supprimer
+    int classroomId = dialogInputInt("Supprimer un local", "Entrez l'identifiant du local à supprimer :");
 
+    // Vérifier si l'identifiant est valide (pas nécessairement ici, dépend de Timetable)
+    if (classroomId < 0) {
+        dialogError("Erreur", "Identifiant du local invalide !");
+        return;
+    }
+
+    // Supprimer le local via la classe Timetable
+    Timetable::getInstance().deleteClassroomById(classroomId);
+
+    // Mettre à jour la table des locaux
+    ui->tableWidgetClassrooms->clearContents();
+    auto classrooms = Timetable::getInstance().getSortedClassrooms();
+
+    for (const auto& classroom : classrooms) {
+        string tuple = classroom.tuple();  // Récupérer le tuple du local
+        ui->tableWidgetClassrooms->addItem(tuple);  // Ajouter dans la table
+    }
+
+    cout << "Local supprimé (ID: " << classroomId << ")" << endl;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////

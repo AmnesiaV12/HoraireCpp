@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include <iterator>
+#include "Schedulable.h"
 using namespace std;
 
 // Constructeur par défaut
@@ -14,6 +15,7 @@ Timetable::~Timetable() {}
 int Timetable::addClassroom(const string& name, int seatingCapacity) {
     Classroom classroom(Schedulable::currentId, name, seatingCapacity);
     classrooms.insert(classroom);
+    Schedulable::currentId++;
     return classroom.getId();
 }
 
@@ -36,10 +38,10 @@ Classroom Timetable::findClassroomByIndex(int index) const {
 
 // Recherche d'une salle de classe par ID
 Classroom Timetable::findClassroomById(int id) const {
-    auto it = find_if(classrooms.cbegin(), classrooms.cend(), [id](const Classroom& c) {
-        return c.getId() == id;
+    auto it = find_if(classrooms.begin(), classrooms.end(), [id](const Classroom& p) {
+        return p.getId() == id;
     });
-    if (it == classrooms.cend()) {
+    if (it == classrooms.end()) {
         throw invalid_argument("Salle de classe introuvable");
     }
     return *it;
@@ -57,19 +59,21 @@ void Timetable::deleteClassroomByIndex(int index) {
 
 // Suppression d'une salle de classe par ID
 void Timetable::deleteClassroomById(int id) {
-    auto it = find_if(classrooms.begin(), classrooms.end(), [id](const Classroom& c) {
-        return c.getId() == id;
+	    auto it = find_if(classrooms.begin(), classrooms.end(), [id](const Classroom& p) {
+        return p.getId() == id;
     });
-    if (it == classrooms.end()) {
-        throw invalid_argument("Salle de classe introuvable");
-    }
-    classrooms.erase(it);
+    if (it != classrooms.end()) {
+	    classrooms.erase(it);
+	} else {
+	    throw invalid_argument("Salle de classe introuvable");
+	}
 }
 
 // Ajout d'un professeur
 int Timetable::addProfessor(const string& lastName, const string& firstName) {
     Professor professor(Schedulable::currentId, lastName, firstName);
     professors.insert(professor);
+    Schedulable::currentId++;
     return professor.getId();
 }
 
@@ -116,16 +120,18 @@ void Timetable::deleteProfessorById(int id) {
     auto it = find_if(professors.begin(), professors.end(), [id](const Professor& p) {
         return p.getId() == id;
     });
-    if (it == professors.end()) {
-        throw invalid_argument("Professeur introuvable");
-    }
-    professors.erase(it);
+    if (it != professors.end()) {
+	    professors.erase(it);
+	} else {
+	    throw invalid_argument("Professeur introuvable");
+	}
 }
 
 // Ajout d'un groupe
 int Timetable::addGroup(const string& name) {
     Group group(Schedulable::currentId, name);
     groups.insert(group);
+    Schedulable::currentId++;
     return group.getId();
 }
 
@@ -176,4 +182,10 @@ void Timetable::deleteGroupById(int id) {
         throw invalid_argument("Groupe introuvable");
     }
     groups.erase(it);
+}
+
+Timetable Timetable::instance;
+
+Timetable& Timetable::getInstance() {
+	return instance;
 }

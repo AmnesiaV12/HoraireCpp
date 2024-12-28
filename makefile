@@ -1,5 +1,5 @@
-Test8A:	Test8a.cpp Time.o Timing.o Event.o Schedulable.o Professor.o Group.o Classroom.o Exception.o TimeException.o TimingException.o XmlFileSerializerException.o Timetable.o
-		g++ Test8a.cpp  Time.o Timing.o Event.o Schedulable.o Professor.o Group.o Classroom.o Exception.o TimeException.o TimingException.o XmlFileSerializerException.o Timetable.o -o Test8A
+Test8B:	Test8b.cpp Time.o Timing.o Event.o Schedulable.o Professor.o Group.o Classroom.o Exception.o TimeException.o TimingException.o XmlFileSerializerException.o Timetable.o
+		g++ Test8b.cpp  Time.o Timing.o Event.o Schedulable.o Professor.o Group.o Classroom.o Exception.o TimeException.o TimingException.o XmlFileSerializerException.o Timetable.o -o Test8B
 
 Event.o:	Event.cpp Event.h
 			g++ Event.cpp -c

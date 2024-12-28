@@ -7,6 +7,7 @@
 #include "Classroom.h"  // Inclut la définition de la classe Classroom
 #include "Professor.h"  // Inclut la définition de la classe Professor
 #include "Group.h"      // Inclut la définition de la classe Group
+#include <algorithm>
 
 using namespace std;
 
@@ -15,10 +16,13 @@ private:
     set<Classroom> classrooms; // Ensemble des salles de classe
     set<Professor> professors; // Ensemble des professeurs
     set<Group> groups;         // Ensemble des groupes
-
+    Timetable();
+    Timetable(const Timetable& t) = delete;
+    Timetable& operator=(const Timetable& other) = delete;
+    static Timetable instance;
 public:
     // Constructeur et destructeur
-    Timetable();
+    
     ~Timetable();
 
     // Méthodes pour les salles de classe
@@ -44,6 +48,7 @@ public:
     Group findGroupById(int id) const;
     void deleteGroupByIndex(int index);
     void deleteGroupById(int id);
+    static Timetable& getInstance();
 };
 
 #endif // TIMETABLE_H

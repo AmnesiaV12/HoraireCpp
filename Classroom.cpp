@@ -118,9 +118,9 @@ Classroom& Classroom::operator=(const Classroom& other) {
 
 // Opérateur<
 bool Classroom::operator<(const Classroom& other) const {
-    return getId() < other.getId(); // pour l'ID
+    return getName() < other.getName();
 }
 
 bool Classroom::operator==(const Classroom& other) const {
-    return this->getId() == other.getId(); // pour l'ID
+    return this->getId() == other.getId(); 
 }

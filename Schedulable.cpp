@@ -6,8 +6,7 @@ int Schedulable::currentId = 1;
 
 // Constructeur par défaut
 Schedulable::Schedulable() {
-    // id = 0;
-    id = currentId++;
+    setId(0);
 }
 
 // Constructeur avec paramètre
@@ -22,7 +21,7 @@ Schedulable::Schedulable(const Schedulable& other) {
 
 // Destructeur virtuel
 Schedulable::~Schedulable() {
-    //Pas alloué dynamiquement
+
 }
 
 // Accesseur pour l'ID
