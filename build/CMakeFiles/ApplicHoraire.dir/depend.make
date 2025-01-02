@@ -58,6 +58,9 @@ CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/Schedulable.h
 CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/Time.h
 CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/TimeException.h
 CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/Timetable.h
+CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/XmlFileSerializer.hpp
+CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/XmlFileSerializer.ipp
+CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/XmlFileSerializerException.h
 CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../sources/Timetable.cpp
 
 CMakeFiles/ApplicHoraire.dir/sources/Timing.cpp.o: ../includes/Exception.h

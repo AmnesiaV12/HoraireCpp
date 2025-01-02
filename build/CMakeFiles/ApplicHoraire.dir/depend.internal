@@ -59,6 +59,9 @@ CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o
  ../includes/Time.h
  ../includes/TimeException.h
  ../includes/Timetable.h
+ ../includes/XmlFileSerializer.hpp
+ ../includes/XmlFileSerializer.ipp
+ ../includes/XmlFileSerializerException.h
  /home/student/AAA/Etape10/sources/Timetable.cpp
 CMakeFiles/ApplicHoraire.dir/sources/Timing.cpp.o
  ../includes/Exception.h

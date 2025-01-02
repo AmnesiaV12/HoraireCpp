@@ -48,7 +48,7 @@ string Classroom::toString() const {
 }
 
 string Classroom::tuple() const {
-    return "(" + to_string(getId()) + ", " + name + ", " + to_string(seatingCapacity) + ")";
+    return to_string(getId()) + ";" + getName() + ";" + to_string(getSeatingCapacity());
 }
 
 std::ostream& operator<<(std::ostream& os, const Classroom& c) {

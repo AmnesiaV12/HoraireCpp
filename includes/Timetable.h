@@ -49,6 +49,8 @@ public:
     void deleteGroupByIndex(int index);
     void deleteGroupById(int id);
     static Timetable& getInstance();
+    void save(const string& timetableName);
+    void load(const string& timetableName);
 };
 
 #endif // TIMETABLE_H

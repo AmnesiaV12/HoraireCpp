@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <iterator>
 #include "Schedulable.h"
+#include "XmlFileSerializer.hpp"
 using namespace std;
 
 // Constructeur par défaut
@@ -189,3 +190,83 @@ Timetable Timetable::instance;
 Timetable& Timetable::getInstance() {
 	return instance;
 }
+
+void Timetable::save(const string& timetableName) {
+    // Création des noms de fichiers
+    string professorsFile = timetableName + "_professors.xml";
+    string groupsFile = timetableName + "_groups.xml";
+    string classroomsFile = timetableName + "_classrooms.xml";
+    string configFile = timetableName + "_config.dat";
+
+    // Sérialisation des professeurs
+    planning::XmlFileSerializer<Professor> professorSerializer(professorsFile, planning::XmlFileSerializer<Professor>::WRITE, "professors");
+    for (const auto& professor : professors) {
+        professorSerializer.write(professor);
+    }
+
+    // Sérialisation des groupes
+    planning::XmlFileSerializer<Group> groupSerializer(groupsFile, planning::XmlFileSerializer<Group>::WRITE, "groups");
+    for (const auto& group : groups) {
+        groupSerializer.write(group);
+    }
+
+    // Sérialisation des salles de classe
+    planning::XmlFileSerializer<Classroom> classroomSerializer(classroomsFile, planning::XmlFileSerializer<Classroom>::WRITE, "classrooms");
+    for (const auto& classroom : classrooms) {
+        classroomSerializer.write(classroom);
+    }
+
+    // Sauvegarde de la configuration (currentId)
+    ofstream configFileStream(configFile, ios::binary);
+    if (!configFileStream) {
+        cerr << "Erreur : impossible d'ouvrir le fichier de configuration." << endl;
+        exit(EXIT_FAILURE); // Arrête le programme en cas d'erreur
+    }
+    configFileStream.write(reinterpret_cast<const char*>(&Schedulable::currentId), sizeof(Schedulable::currentId));
+    configFileStream.close();
+}
+
+void Timetable::load(const string& timetableName) {
+    // On remet afin de savoir on utilise quelle donnée afin de les lire
+    string professorsFile = timetableName + "_professors.xml";
+    string groupsFile = timetableName + "_groups.xml";
+    string classroomsFile = timetableName + "_classrooms.xml";
+    string configFile = timetableName + "_config.dat";
+
+    professors.clear();
+    groups.clear();
+    classrooms.clear();
+
+    // Charger la configuration (currentId)
+    ifstream configFileStream(configFile, ios::binary);
+    if (configFileStream.is_open()) {
+        configFileStream.read(reinterpret_cast<char*>(&Schedulable::currentId), sizeof(Schedulable::currentId));
+        configFileStream.close();
+    }
+
+    // Charger les professeurs
+    planning::XmlFileSerializer<Professor> professorSerializer(professorsFile, planning::XmlFileSerializer<Professor>::READ, "professors");
+    Professor professor;
+    while (professorSerializer.read(professor)) { // Tant qu'il y a des données
+        professors.insert(professor);            // Ajouter dans le set
+    }
+
+    // Charger les groupes
+    planning::XmlFileSerializer<Group> groupSerializer(groupsFile, planning::XmlFileSerializer<Group>::READ, "groups");
+    Group group;
+    while (groupSerializer.read(group)) { // Tant qu'il y a des données
+        groups.insert(group);             // Ajouter dans le set
+    }
+
+    // Charger les salles de classe
+    planning::XmlFileSerializer<Classroom> classroomSerializer(classroomsFile, planning::XmlFileSerializer<Classroom>::READ, "classrooms");
+    Classroom classroom;
+    while (classroomSerializer.read(classroom)) { // Tant qu'il y a des données
+        classrooms.insert(classroom);            // Ajouter dans le set
+    }
+    
+    
+    configFileStream.read(reinterpret_cast<char*>(&Schedulable::currentId), sizeof(Schedulable::currentId));
+    configFileStream.close();
+}
+
