@@ -10,6 +10,15 @@ CMakeFiles/ApplicHoraire.dir/sources/Classroom.cpp.o: ../includes/Time.h
 CMakeFiles/ApplicHoraire.dir/sources/Classroom.cpp.o: ../includes/TimeException.h
 CMakeFiles/ApplicHoraire.dir/sources/Classroom.cpp.o: ../sources/Classroom.cpp
 
+CMakeFiles/ApplicHoraire.dir/sources/Course.cpp.o: ../includes/Course.h
+CMakeFiles/ApplicHoraire.dir/sources/Course.cpp.o: ../includes/Event.h
+CMakeFiles/ApplicHoraire.dir/sources/Course.cpp.o: ../includes/Exception.h
+CMakeFiles/ApplicHoraire.dir/sources/Course.cpp.o: ../includes/Time.h
+CMakeFiles/ApplicHoraire.dir/sources/Course.cpp.o: ../includes/TimeException.h
+CMakeFiles/ApplicHoraire.dir/sources/Course.cpp.o: ../includes/Timing.h
+CMakeFiles/ApplicHoraire.dir/sources/Course.cpp.o: ../includes/TimingException.h
+CMakeFiles/ApplicHoraire.dir/sources/Course.cpp.o: ../sources/Course.cpp
+
 CMakeFiles/ApplicHoraire.dir/sources/Event.cpp.o: ../includes/Event.h
 CMakeFiles/ApplicHoraire.dir/sources/Event.cpp.o: ../includes/Exception.h
 CMakeFiles/ApplicHoraire.dir/sources/Event.cpp.o: ../includes/Time.h
@@ -51,6 +60,7 @@ CMakeFiles/ApplicHoraire.dir/sources/TimeException.cpp.o: ../includes/TimeExcept
 CMakeFiles/ApplicHoraire.dir/sources/TimeException.cpp.o: ../sources/TimeException.cpp
 
 CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/Classroom.h
+CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/Event.h
 CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/Exception.h
 CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/Group.h
 CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/Professor.h
@@ -58,6 +68,8 @@ CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/Schedulable.h
 CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/Time.h
 CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/TimeException.h
 CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/Timetable.h
+CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/Timing.h
+CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/TimingException.h
 CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/XmlFileSerializer.hpp
 CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/XmlFileSerializer.ipp
 CMakeFiles/ApplicHoraire.dir/sources/Timetable.cpp.o: ../includes/XmlFileSerializerException.h
@@ -79,6 +91,7 @@ CMakeFiles/ApplicHoraire.dir/sources/XmlFileSerializerException.cpp.o: ../includ
 CMakeFiles/ApplicHoraire.dir/sources/XmlFileSerializerException.cpp.o: ../sources/XmlFileSerializerException.cpp
 
 CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o: ../includes/Classroom.h
+CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o: ../includes/Event.h
 CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o: ../includes/Exception.h
 CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o: ../includes/Group.h
 CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o: ../includes/Professor.h
@@ -86,6 +99,11 @@ CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o: ../includes/Sche
 CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o: ../includes/Time.h
 CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o: ../includes/TimeException.h
 CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o: ../includes/Timetable.h
+CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o: ../includes/Timing.h
+CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o: ../includes/TimingException.h
+CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o: ../includes/XmlFileSerializer.hpp
+CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o: ../includes/XmlFileSerializer.ipp
+CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o: ../includes/XmlFileSerializerException.h
 CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o: ../includes/applichorairewindow.h
 CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o: ../includes/ui_applichorairewindow.h
 CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o: ../sources/applichorairewindow.cpp
@@ -378,14 +396,6 @@ CMakeFiles/ApplicHoraire.dir/sources/main.cpp.o: /usr/include/qt5/QtWidgets/qtwi
 CMakeFiles/ApplicHoraire.dir/sources/main.cpp.o: /usr/include/qt5/QtWidgets/qtwidgetsglobal.h
 CMakeFiles/ApplicHoraire.dir/sources/main.cpp.o: /usr/include/qt5/QtWidgets/qwidget.h
 
-CMakeFiles/ApplicHoraire.dir/sources/moc_applichorairewindow.cpp.o: ../includes/Classroom.h
-CMakeFiles/ApplicHoraire.dir/sources/moc_applichorairewindow.cpp.o: ../includes/Exception.h
-CMakeFiles/ApplicHoraire.dir/sources/moc_applichorairewindow.cpp.o: ../includes/Group.h
-CMakeFiles/ApplicHoraire.dir/sources/moc_applichorairewindow.cpp.o: ../includes/Professor.h
-CMakeFiles/ApplicHoraire.dir/sources/moc_applichorairewindow.cpp.o: ../includes/Schedulable.h
-CMakeFiles/ApplicHoraire.dir/sources/moc_applichorairewindow.cpp.o: ../includes/Time.h
-CMakeFiles/ApplicHoraire.dir/sources/moc_applichorairewindow.cpp.o: ../includes/TimeException.h
-CMakeFiles/ApplicHoraire.dir/sources/moc_applichorairewindow.cpp.o: ../includes/Timetable.h
 CMakeFiles/ApplicHoraire.dir/sources/moc_applichorairewindow.cpp.o: ../includes/applichorairewindow.h
 CMakeFiles/ApplicHoraire.dir/sources/moc_applichorairewindow.cpp.o: ../sources/moc_applichorairewindow.cpp
 CMakeFiles/ApplicHoraire.dir/sources/moc_applichorairewindow.cpp.o: /usr/include/qt5/QtCore/qalgorithms.h

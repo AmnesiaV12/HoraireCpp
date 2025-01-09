@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/student/AAA/Etape10/sources/Classroom.cpp" "/home/student/AAA/Etape10/build/CMakeFiles/ApplicHoraire.dir/sources/Classroom.cpp.o"
+  "/home/student/AAA/Etape10/sources/Course.cpp" "/home/student/AAA/Etape10/build/CMakeFiles/ApplicHoraire.dir/sources/Course.cpp.o"
   "/home/student/AAA/Etape10/sources/Event.cpp" "/home/student/AAA/Etape10/build/CMakeFiles/ApplicHoraire.dir/sources/Event.cpp.o"
   "/home/student/AAA/Etape10/sources/Exception.cpp" "/home/student/AAA/Etape10/build/CMakeFiles/ApplicHoraire.dir/sources/Exception.cpp.o"
   "/home/student/AAA/Etape10/sources/Group.cpp" "/home/student/AAA/Etape10/build/CMakeFiles/ApplicHoraire.dir/sources/Group.cpp.o"

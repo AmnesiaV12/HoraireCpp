@@ -1,5 +1,8 @@
 file(REMOVE_RECURSE
+  "ApplicHoraire"
+  "ApplicHoraire.pdb"
   "CMakeFiles/ApplicHoraire.dir/sources/Classroom.cpp.o"
+  "CMakeFiles/ApplicHoraire.dir/sources/Course.cpp.o"
   "CMakeFiles/ApplicHoraire.dir/sources/Event.cpp.o"
   "CMakeFiles/ApplicHoraire.dir/sources/Exception.cpp.o"
   "CMakeFiles/ApplicHoraire.dir/sources/Group.cpp.o"
@@ -14,8 +17,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/ApplicHoraire.dir/sources/applichorairewindow.cpp.o"
   "CMakeFiles/ApplicHoraire.dir/sources/main.cpp.o"
   "CMakeFiles/ApplicHoraire.dir/sources/moc_applichorairewindow.cpp.o"
-  "build/ApplicHoraire"
-  "build/ApplicHoraire.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

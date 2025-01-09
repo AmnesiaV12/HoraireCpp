@@ -169,6 +169,33 @@ sources/Classroom.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ApplicHoraire.dir/build.make CMakeFiles/ApplicHoraire.dir/sources/Classroom.cpp.s
 .PHONY : sources/Classroom.cpp.s
 
+sources/Course.o: sources/Course.cpp.o
+
+.PHONY : sources/Course.o
+
+# target to build an object file
+sources/Course.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ApplicHoraire.dir/build.make CMakeFiles/ApplicHoraire.dir/sources/Course.cpp.o
+.PHONY : sources/Course.cpp.o
+
+sources/Course.i: sources/Course.cpp.i
+
+.PHONY : sources/Course.i
+
+# target to preprocess a source file
+sources/Course.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ApplicHoraire.dir/build.make CMakeFiles/ApplicHoraire.dir/sources/Course.cpp.i
+.PHONY : sources/Course.cpp.i
+
+sources/Course.s: sources/Course.cpp.s
+
+.PHONY : sources/Course.s
+
+# target to generate assembly for a file
+sources/Course.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ApplicHoraire.dir/build.make CMakeFiles/ApplicHoraire.dir/sources/Course.cpp.s
+.PHONY : sources/Course.cpp.s
+
 sources/Event.o: sources/Event.cpp.o
 
 .PHONY : sources/Event.o
@@ -559,6 +586,9 @@ help:
 	@echo "... sources/Classroom.o"
 	@echo "... sources/Classroom.i"
 	@echo "... sources/Classroom.s"
+	@echo "... sources/Course.o"
+	@echo "... sources/Course.i"
+	@echo "... sources/Course.s"
 	@echo "... sources/Event.o"
 	@echo "... sources/Event.i"
 	@echo "... sources/Event.s"
